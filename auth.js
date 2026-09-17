@@ -1,22 +1,24 @@
+/* Update login logic for feature branch testing */
+
 function login(username, password) {
-    // Kiểm tra tài khoản bị khóa
-    if (username === 'locked_user') {
-        return { success: false, message: 'Tài khoản đã bị khóa' };
-    }
-    
-    // Kiểm tra username rỗng hoặc không tồn tại
-    if (!username || username.trim() === '') {
-        return { success: false, message: 'Tên đăng nhập không được để trống' };
-    }
+  if (!username || username.trim() === '') {
+    throw new Error('Username cannot be empty');
+  }
 
-    // Kiểm tra ký tự đặc biệt trong mật khẩu hoặc các trường hợp sai thông tin
-    if (username === 'admin' && password === '9999') {
-        return true;
-    }
-    
-    return false;
+  if (!password || password.trim() === '') {
+    throw new Error('Password cannot be empty');
+  }
+
+  const lockedUsers = ['locked_admin', 'user_banned'];
+  if (lockedUsers.includes(username)) {
+    throw new Error('Account is locked');
+  }
+
+  if (username === 'admin' && password === '123') {
+    return true;
+  }
+
+  throw new Error('Invalid credentials');
 }
 
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { login };
-}
+module.exports = { login };
