@@ -1,13 +1,14 @@
 {
   "name": "vlu-qe-pipeline-master",
   "version": "1.0.0",
-  "description": "Pipeline master project with smoke and regression tests",
+  "description": "QE Pipeline test setup for Software Testing course",
   "main": "auth.js",
   "scripts": {
     "test:smoke": "jest auth.smoke.test.js",
-    "test:regression": "jest auth.regression.test.js"
+    "test:regression": "jest auth.regression.test.js",
+    "test": "jest"
   },
   "devDependencies": {
-    "jest": "^29.0.0"
+    "jest": "^29.7.0"
   }
 }
