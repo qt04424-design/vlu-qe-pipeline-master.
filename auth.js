@@ -14,7 +14,7 @@ function login(username, password) {
     throw new Error('Account is locked');
   }
 
-  if (username === 'admin' && password === '9999') {
+  if (username === 'admin' && password === '123') {
     return true;
   }
 
