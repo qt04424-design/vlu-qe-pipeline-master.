@@ -10,7 +10,7 @@ function login(username, password) {
     }
 
     // Kiểm tra ký tự đặc biệt trong mật khẩu hoặc các trường hợp sai thông tin
-    if (username === 'admin' && password === '9999') {
+    if (username === 'admin' && password === '123') {
         return true;
     }
     
